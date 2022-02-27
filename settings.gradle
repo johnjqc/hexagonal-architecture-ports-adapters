@@ -1,0 +1,8 @@
+rootProject.name = 'microservice-java-hexagonal-template'
+
+include 'mod-core'
+include 'mod-adapter-rest'
+include 'mod-adapter-service'
+include 'mod-adapter-db'
+include 'mod-core-common'
+

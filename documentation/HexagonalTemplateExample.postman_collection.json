@@ -1,0 +1,39 @@
+{
+	"info": {
+		"_postman_id": "c0389809-9b46-41f7-bf46-fc26309df16f",
+		"name": "HexagonalTemplateExample",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "hexagonal-template",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"value1\": \"\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/template/example",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"template",
+						"example"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
