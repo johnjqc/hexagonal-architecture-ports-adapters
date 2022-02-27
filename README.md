@@ -1,6 +1,6 @@
 # Template for Microservices with Hexagonal Architecture
 
-
+![your-UML-diagram-name](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/johnjqc/hexagonal-architecture-ports-adapters/main/documentation/diagram-project-components.iuml)
 
 ##Adapter Module: Primary / Driving Adapter
 The primary adapters are the way to entrance into the domain, these adapters make use of the input ports, for this reason are named how Driving Adapters.
@@ -60,3 +60,5 @@ Exceptions: To define you custom exception implement the class AbstractDomainExc
 Example: BusinessException.java
 Response Codes: If you need manage and response code you can implement the interface (ResponseCode.java)
 Example: DomainResponseCode.java
+
+![your-UML-diagram-name](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/johnjqc/hexagonal-architecture-ports-adapters/main/documentation/diagram-components.iuml)
