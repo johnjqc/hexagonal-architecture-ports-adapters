@@ -1,0 +1,18 @@
+@startuml "Hexagonal Architecture Component"
+!include <C4/C4_Component>
+
+Container_Boundary(JavaApp, "java-application") {
+
+    Component(CoreModule, "core-business-name", "Java Module", "Only JKD and libraries how dependencies")
+
+    Component(AdapterRestModule, "adapter-rest", "Java Module", "Spring Web Dependency")
+    Rel(AdapterRestModule, CoreModule, "dependency")
+
+    Component(AdapterDataBaseModule, "adapter-database", "Java Module", "Sprin JPA dependency")
+    Rel(AdapterDataBaseModule, CoreModule, "dependency")
+
+    Component(AnyAdapterModule, "any-output-adapter", "Java Module", "required dependencies")
+    Rel(AnyAdapterModule, CoreModule, "dependency")
+}
+
+@enduml

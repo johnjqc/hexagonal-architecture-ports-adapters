@@ -1,0 +1,39 @@
+@startuml "Hexagonal Architecture Component"
+!include <C4/C4_Component>
+
+Container_Boundary(JavaApp, "java-application") {
+
+    Container_Boundary(CoreModule, "core-business-name") {
+        Container_Boundary(ApplicationLayer, "Application") {
+            Component(UseCases,"Use Case", "Java Package", "Input Ports implementation")
+        }
+        Container_Boundary(DomainLayer, "Domain") {
+            Component(Aggregate,"Aggregate", "Java Interface", "Output Ports injection")
+            Component(InputPort,"Input Port", "Java Interface")
+            Component(OutputPort,"Output Port", "Java Interface")
+        }
+        Rel(UseCases, Aggregate, "Agregate")
+        Rel(InputPort, UseCases, "Agregate")
+        Rel(Aggregate, OutputPort, "Agregate")
+    }
+
+    Container_Boundary(AdapterRestModule, "adapter-rest") {
+        Component(RestController,"Rest Controller", "Java Class", "Input Ports injection")
+    }
+    Rel(AdapterRestModule, InputPort, "dependency")
+
+    Container_Boundary(AdapterDataBaseModule, "adapter-database") {
+        Component(AdapterImplDB,"Adapter", "Java Class", "Output Ports implementation")
+
+    }
+    Rel(OutputPort, AdapterImplDB, "dependency")
+
+    Container_Boundary(AnyAdapterModule, "any-output-adapter") {
+    }
+    Rel(OutputPort, AnyAdapterModule, "dependency")
+
+    ContainerDb_Ext(DataBase,"Adapter", "Java Class", "Output Ports implementation")
+    Rel(AdapterImplDB, DataBase, "Agregate")
+}
+
+@enduml
